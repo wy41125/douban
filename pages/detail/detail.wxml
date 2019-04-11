@@ -1,0 +1,45 @@
+<view class="item-header">
+  <view class='item-title'>{{item.title}}({{item.extra.year}})</view>
+  <view class='item-detail'>
+    <view class='left-detail'>
+      <view class='item-rate'>
+        <stars rate="{{value}}" starsSize="30" fontSize="30" fontColor="#333"></stars>
+        <text class='comment-persons'>{{count}}人评论</text>
+      </view>
+      <view class='item-sub-detail'>
+        <view class='item-type'>{{item.extra.short_info}}</view>
+        <view class='item-show'>{{item.extra.info[0][1]}}</view>
+        <view class='item-actors'>{{item.extra.info[1][1]}}</view>
+      </view>
+    </view>
+    <view class='right-detail'>
+      <image src="{{item.cover_img.url}}"></image>
+    </view>
+  </view>
+</view>
+
+<view class='iem-tags'>
+  <view class='item-tags-title'>豆瓣成员常用标签</view>
+  <view class='item-tags-list'>
+    <text wx:for="{{tags}}" wx:key="*this">{{item}}</text>
+  </view>
+</view>
+
+<view class='comment-list-group'>
+  <view class='comment-title'>短评（{{comments.total}}）</view>
+  <view class='comment-group' wx:for="{{comments.interests}}" wx:key="item.id">
+    <view class='left-comment'>
+      <image class='avatar' src="{{item.user.avatar}}"></image>
+    </view>
+    <view class='right-comment'>
+      <view class='username-rate'>
+        <text class='username'>{{item.user.name}}</text>
+         <stars rate="{{item.rating.value*2}}" starsSize="30" istext="{{false}}"></stars> 
+      </view>
+      <view class='release-time'>{{item.create_time}}</view>
+      <view class='content'>{{item.comment}}</view>
+    </view>
+  </view>
+</view>
+
+<!-- <navigator class='more-comment'>查看更多短评</navigator> -->
